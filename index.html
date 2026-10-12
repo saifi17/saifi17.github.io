@@ -1319,6 +1319,63 @@ h1 { font-size: clamp(30px, 4.4vw, 56px); line-height: 1.1; letter-spacing: -0.0
   .sf-brand { grid-column: 1 / -1; }
   .sf-bot { flex-direction: column; align-items: flex-start; }
 }
+
+/* ===== Final fit: calmer headline, sections that fit one screen on desktop ===== */
+h1 { font-size: clamp(26px, 2.9vw, 42px); line-height: 1.18; letter-spacing: -0.03em; }
+.ln.intro > span { font-weight: 600; }
+.ln.ship > span { font-weight: 600; }
+.section { padding-block: clamp(52px, 6vw, 80px) 0; }
+.sec-head { margin-bottom: 24px; }
+h2 { font-size: clamp(26px, 2.8vw, 38px); }
+
+@media (min-width: 1024px) {
+  /* Hero: text left, compare screen right, all within one screen */
+  .hero { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr); grid-template-rows: auto auto auto; column-gap: 48px; align-content: center; min-height: calc(100svh - 66px); padding-block: 28px; }
+  .hero > .pill, .hero > h1, .hero > .hero-row { grid-column: 1; }
+  .hero > .pill { align-self: end; justify-self: start; }
+  .hero > .hero-row { flex-direction: column; align-items: flex-start; align-self: start; gap: 22px; margin-top: 18px; }
+  .hero .stage-wrap { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin: 0; width: 100%; max-width: calc((100svh - 140px) * 1.72); justify-self: end; }
+  .marquee { margin-top: 8px; }
+
+  /* Projects: one card per row, screens and text side by side, each card fits the screen */
+  .works { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .pcard { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); column-gap: 36px; align-items: center; padding: 16px; }
+  .pcard .gal { grid-column: 1; grid-row: 1; width: 100%; max-width: calc((100svh - 210px) * 1.6); }
+  .pcard .g-bar { grid-column: 1; grid-row: 2; max-width: calc((100svh - 210px) * 1.6); }
+  .pcard .info { grid-column: 2; grid-row: 1 / span 2; padding: 8px 16px 8px 0; }
+  .pcard:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+  .pcard:nth-child(even) .gal, .pcard:nth-child(even) .g-bar { grid-column: 2; justify-self: end; }
+  .pcard:nth-child(even) .info { grid-column: 1; padding: 8px 0 8px 16px; }
+
+  /* Services: compact cards, two rows fit one screen */
+  .svc2 { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 14px; row-gap: 8px; padding: 20px; }
+  .svc2-top { margin: 0; }
+  .svc2 .svc-ic { width: 42px; height: 42px; border-radius: 12px; }
+  .svc2 p, .svc2-tags { grid-column: 1 / -1; }
+  .svc2 p { font-size: 14px; }
+  .svc2-tags { margin-top: 2px; padding-top: 12px; }
+  .svc2-cta { margin-top: 14px; padding: 14px 20px; }
+
+  /* About and contact: tighter */
+  .bio h2 { margin-bottom: 16px; }
+  .bio-lead { font-size: clamp(17px, 1.5vw, 20px); margin-bottom: 14px; }
+  .bio p.t2 { margin-bottom: 10px; font-size: 15px; }
+  .xp { margin-top: 20px; }
+  .xp li { padding: 13px 0; }
+  .profile { top: 84px; }
+  .cta { padding: clamp(28px, 4vw, 52px); }
+  .cta h2 { font-size: clamp(28px, 3.4vw, 46px); }
+}
+@media (max-width: 1023px) {
+  .stage-wrap { max-width: 760px; margin-inline: auto; }
+}
+@media (max-width: 640px) {
+  h1 { font-size: 27px; }
+  .lede { font-size: 15.5px; }
+  .pill { font-size: 12.5px; }
+  h2 { font-size: 26px; }
+  .pcard .info h3 { font-size: 21px; }
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
