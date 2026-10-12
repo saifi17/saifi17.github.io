@@ -1290,6 +1290,35 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
 }
 @media (max-width: 760px) { .g-bar { padding-right: 14%; } .g-dots { flex-wrap: nowrap; gap: 0; } .g-dots button { width: 14px; } .g-dots button::before { width: 6px; height: 6px; } .g-dots button[aria-current="true"]::before { width: 12px; } }
 @keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+
+/* Hero headline: name and role */
+h1 { font-size: clamp(30px, 4.4vw, 56px); line-height: 1.1; letter-spacing: -0.04em; }
+.ln { padding-bottom: .2em; margin-bottom: -.2em; }
+.ln.intro > span { font-weight: 700; color: var(--ink); }
+.ln.ship > span { font-weight: 800; }
+.hero .lede { max-width: 36em; }
+.hero .lede b { color: var(--ink); font-weight: 650; }
+
+/* Footer */
+.site-foot { margin-top: clamp(56px, 7vw, 88px); border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.015), transparent); margin-inline: -20px; padding-inline: 20px; }
+.sf-top { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, .7fr) minmax(0, 1fr); gap: 32px 48px; padding-block: 48px 36px; }
+.sf-brand b { display: block; font-size: 18px; font-weight: 750; letter-spacing: -0.02em; }
+.sf-brand p { margin: 10px 0 16px; max-width: 30em; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+.sf-avail { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line-2); border-radius: 99px; font-size: 12.5px; color: var(--ink-2); }
+.sf-avail i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(126,214,160,.18); }
+.sf-col { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.sf-col h4 { margin: 0 0 4px; font-size: 13px; font-weight: 600; color: var(--ink); }
+.sf-col a { color: var(--muted); font-size: 14px; text-decoration: none; overflow-wrap: anywhere; transition: color .15s; }
+.sf-col a:hover { color: var(--gold); }
+.sf-bot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 20px 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.sf-up { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); text-decoration: none; }
+.sf-up:hover { color: var(--gold); }
+.sf-up svg { width: 14px; height: 14px; }
+@media (max-width: 760px) {
+  .sf-top { grid-template-columns: 1fr 1fr; padding-block: 36px 28px; }
+  .sf-brand { grid-column: 1 / -1; }
+  .sf-bot { flex-direction: column; align-items: flex-start; }
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1333,6 +1362,7 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
   <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r=".6" fill="currentColor"/><circle cx="9" cy="6.5" r=".6" fill="currentColor"/><path d="m10 13-2 2 2 2M14 13l2 2-2 2"/></symbol>
   <symbol id="i-android" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><path d="M9 6.5h6"/></symbol>
   <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-6"/><path d="M5 11.5v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
   <symbol id="kurta" viewBox="0 0 100 130"><path fill="currentColor" d="M40 6 Q50 16 60 6 L72 10 L92 40 L81 47 L71 31 L76 126 L24 126 L29 31 L19 47 L8 40 L28 10 Z"/><path d="M50 14 V46" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.6" stroke-linecap="round"/><path d="M26 118 H74" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1.6"/></symbol>
   <symbol id="face" viewBox="0 0 200 200"><ellipse cx="100" cy="80" rx="36" ry="42" fill="currentColor"/><path fill="currentColor" d="M32 200c4-48 30-68 68-68s64 20 68 68z"/></symbol>
 </svg>
@@ -1365,9 +1395,9 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
 <main>
   <section class="hero wrap" id="top" aria-labelledby="hero-h">
     <p class="pill"><i aria-hidden="true"></i>Available for new projects</p>
-    <h1 id="hero-h"><span class="ln sketch"><span>From first sketch</span></span><span class="ln ship"><span>to shipped product.</span></span></h1>
+    <h1 id="hero-h"><span class="ln intro"><span>I'm Saif Siddiqui,</span></span><span class="ln ship"><span>full-stack developer &amp; UI/UX designer.</span></span></h1>
     <div class="hero-row">
-      <p class="lede">I'm Saif Siddiqui, a <b>full-stack developer and UI/UX designer</b>. I design interfaces people enjoy using, then build them into fast, reliable web and Android apps with React, Node.js, Kotlin and AI.</p>
+      <p class="lede">I design interfaces people enjoy using, then build them into fast, reliable <b>web and Android apps</b> with React, Node.js, Kotlin and AI.</p>
       <div class="actions">
         <a class="btn gold" href="#work">See my work</a>
         <a class="btn ghost" href="#contact">Let's talk</a>
@@ -1457,7 +1487,7 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
   <section class="section wrap" id="work" aria-labelledby="work-h">
     <div class="sec-head">
       <h2 id="work-h">Selected work</h2>
-      <p>Four products I designed and built. Swipe through the screens, shown here with sample data.</p>
+      <p>Swipe through the screens, shown here with sample data.</p>
     </div>
     <div class="works">
       <article class="card pcard reveal">
@@ -1896,9 +1926,29 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
   </div>
 </main>
 
-<footer class="foot wrap">
-  <span>© 2026 Saif Siddiqui. All rights reserved.</span>
-  <span>Full-stack developer and UI/UX designer, based in Pakistan</span>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="sf-top">
+      <div class="sf-brand">
+        <b>Saif Siddiqui</b>
+        <p>Full-stack developer and UI/UX designer. Web and Android apps, designed and built end to end.</p>
+        <span class="sf-avail"><i aria-hidden="true"></i>Available for new projects</span>
+      </div>
+      <nav class="sf-col" aria-label="Footer">
+        <h4>Explore</h4>
+        <a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="sf-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:saifsiddiqui1717@gmail.com">Email</a><a href="https://wa.me/923156855337">WhatsApp</a><a href="https://www.linkedin.com/in/saifsiddiqui17/">LinkedIn</a><a href="https://github.com/saifi17">GitHub</a>
+      </div>
+    </div>
+    <div class="sf-bot">
+      <span>© 2026 Saif Siddiqui. All rights reserved.</span>
+      <span>Based in Pakistan, working with clients worldwide</span>
+      <a class="sf-up" href="#top">Back to top<svg><use href="#i-up"/></svg></a>
+    </div>
+  </div>
 </footer>
 
 <script>
