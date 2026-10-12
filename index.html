@@ -1270,6 +1270,26 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
   .svc2-cta .btn { width: 100%; }
 }
 @media (hover: none) { .svc2:hover { transform: none; } }
+
+/* Gallery affordance on phones: peek at the next screen, swipe hint, visible arrows */
+.slides { position: relative; }
+.g-hint { display: none; }
+@media (hover: none), (max-width: 760px) {
+  .gal { border: 0; background: none; border-radius: 0; overflow: visible; }
+  .slides { gap: 10px; scroll-padding-inline: 0; }
+  .slide { flex-basis: 86%; }
+  .slide:only-child { flex-basis: 100%; }
+  .slide .scene { border-radius: 14px; border: 1px solid var(--line); }
+  .g-btn { display: grid !important; opacity: 1; width: 34px; height: 34px; margin-top: -17px; background: rgba(12,13,16,.82); }
+  .g-prev { left: 6px; }
+  .g-next { right: calc(14% + 6px); }
+  .g-zoom { right: calc(14% + 8px); top: 8px; width: 32px; height: 32px; }
+  .g-hint { position: absolute; left: 50%; bottom: 10px; z-index: 3; display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px 5px 12px; border-radius: 99px; transform: translateX(-60%); background: rgba(12,13,16,.82); border: 1px solid rgba(255,255,255,.14); color: var(--ink); font-size: 12px; font-weight: 600; pointer-events: none; transition: opacity .3s; }
+  .g-hint svg { width: 14px; height: 14px; animation: nudge 1.4s ease-in-out infinite; }
+  .gal.swiped .g-hint { opacity: 0; }
+}
+@media (max-width: 760px) { .g-bar { padding-right: 14%; } .g-dots { flex-wrap: nowrap; gap: 0; } .g-dots button { width: 14px; } .g-dots button::before { width: 6px; height: 6px; } .g-dots button[aria-current="true"]::before { width: 12px; } }
+@keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1620,7 +1640,7 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
 </div></div>
   </div>
 </div></div></div></div><figcaption hidden>Coupons</figcaption></figure></div>
-          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button>
+          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button><span class="g-hint" aria-hidden="true">Swipe<svg><use href="#i-right"/></svg></span>
           <button class="g-zoom" type="button" aria-label="Open Cherries screens full size"><svg><use href="#i-expand"/></svg></button>
         </div>
         <div class="g-bar"><span class="g-cap"><b>Shop</b><span class="g-count">1 / 9</span></span><div class="g-dots"><button type="button" aria-label="Screen 1" aria-current="true"></button><button type="button" aria-label="Screen 2"></button><button type="button" aria-label="Screen 3"></button><button type="button" aria-label="Screen 4"></button><button type="button" aria-label="Screen 5"></button><button type="button" aria-label="Screen 6"></button><button type="button" aria-label="Screen 7"></button><button type="button" aria-label="Screen 8"></button><button type="button" aria-label="Screen 9"></button></div></div>
@@ -1672,7 +1692,7 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
   <p class="kk-doing">Calling Lucas Martin on video</p>
   <div class="kk-sugs"><span>Message Emma</span><span>Read my new messages</span><span>Call Family</span></div>
 </div></div></div></div></div><figcaption hidden>Group calls and voice commands</figcaption></figure></div>
-          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button>
+          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button><span class="g-hint" aria-hidden="true">Swipe<svg><use href="#i-right"/></svg></span>
           <button class="g-zoom" type="button" aria-label="Open KOKO screens full size"><svg><use href="#i-expand"/></svg></button>
         </div>
         <div class="g-bar"><span class="g-cap"><b>Chats, translation and invite-only access</b><span class="g-count">1 / 2</span></span><div class="g-dots"><button type="button" aria-label="Screen 1" aria-current="true"></button><button type="button" aria-label="Screen 2"></button></div></div>
@@ -1708,7 +1728,7 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
     <div class="hh-samples"><b>Face samples</b><span>3 of 5 photos captured</span><div class="hh-thumbs"><i></i><i></i><i></i><i class="e"></i><i class="e"></i></div></div></div>
   </div>
   <span class="hh-btn">SAVE STUDENT</span></div></div></div></div></div><figcaption hidden>Admin: dashboard, teachers and students</figcaption></figure></div>
-          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button>
+          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button><span class="g-hint" aria-hidden="true">Swipe<svg><use href="#i-right"/></svg></span>
           <button class="g-zoom" type="button" aria-label="Open HAZRI screens full size"><svg><use href="#i-expand"/></svg></button>
         </div>
         <div class="g-bar"><span class="g-cap"><b>Face attendance, class list and parent alert</b><span class="g-count">1 / 2</span></span><div class="g-dots"><button type="button" aria-label="Screen 1" aria-current="true"></button><button type="button" aria-label="Screen 2"></button></div></div>
@@ -1790,7 +1810,7 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
   </div>
 </div>
 </div></div></div></div><figcaption hidden>Library</figcaption></figure></div>
-          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button>
+          <button class="g-btn g-prev" type="button" aria-label="Previous screen"><svg><use href="#i-left"/></svg></button><button class="g-btn g-next" type="button" aria-label="Next screen"><svg><use href="#i-right"/></svg></button><span class="g-hint" aria-hidden="true">Swipe<svg><use href="#i-right"/></svg></span>
           <button class="g-zoom" type="button" aria-label="Open Lecture Shelf screens full size"><svg><use href="#i-expand"/></svg></button>
         </div>
         <div class="g-bar"><span class="g-cap"><b>Lecture with transcript</b><span class="g-count">1 / 3</span></span><div class="g-dots"><button type="button" aria-label="Screen 1" aria-current="true"></button><button type="button" aria-label="Screen 2"></button><button type="button" aria-label="Screen 3"></button></div></div>
@@ -2051,14 +2071,19 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
       if (prev) prev.disabled = i === 0;
       if (next) next.disabled = i === slides.length - 1;
     }
+    function nearest() {
+      var x = track.scrollLeft, best = 0, d = Infinity;
+      slides.forEach(function (sl, k) { var dd = Math.abs(sl.offsetLeft - slides[0].offsetLeft - x); if (dd < d) { d = dd; best = k; } });
+      return best;
+    }
     function go(i) {
       i = Math.max(0, Math.min(slides.length - 1, i));
-      track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+      track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
       update(i);
     }
     track.addEventListener('scroll', function () {
       clearTimeout(timer);
-      timer = setTimeout(function () { var i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth)); if (i !== idx) update(i); }, 80);
+      timer = setTimeout(function () { var i = nearest(); if (i !== idx) update(i); if (track.scrollLeft > 4) gal.classList.add('swiped'); }, 80);
     }, { passive: true });
     if (prev) prev.addEventListener('click', function () { go(idx - 1); });
     if (next) next.addEventListener('click', function () { go(idx + 1); });
@@ -2071,6 +2096,19 @@ h2 { font-size: clamp(28px, 3.3vw, 44px); line-height: 1.08; letter-spacing: -0.
     slides.forEach(function (sl, k) { sl.querySelector('.scene').addEventListener('click', function () { openBox(gal, k); }); });
     gal.querySelector('.g-zoom').addEventListener('click', function () { openBox(gal, idx); });
     gal._api = { slides: slides, go: go, name: gal.getAttribute('data-name'), capOf: capOf };
+    // On touch screens, show once that the screens can be swiped.
+    if (slides.length > 1 && !reduce && window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+      var seen = new IntersectionObserver(function (en) {
+        if (!en[0].isIntersecting) return;
+        seen.disconnect();
+        setTimeout(function () {
+          if (gal.classList.contains('swiped')) return;
+          track.scrollTo({ left: 70, behavior: 'smooth' });
+          setTimeout(function () { track.scrollTo({ left: 0, behavior: 'smooth' }); }, 650);
+        }, 500);
+      }, { threshold: 0.6 });
+      seen.observe(gal);
+    }
     update(0);
   });
 
